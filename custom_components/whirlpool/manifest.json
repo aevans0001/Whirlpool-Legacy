@@ -1,4 +1,4 @@
-{
+﻿{
     "domain":  "whirlpool",
     "name":  "Whirlpool Legacy",
     "codeowners":  [
@@ -8,13 +8,13 @@
     "documentation":  "https://github.com/aevans0001/Whirlpool-Legacy",
     "integration_type":  "hub",
     "iot_class":  "cloud_push",
+    "issue_tracker":  "https://github.com/aevans0001/Whirlpool-Legacy/issues",
     "loggers":  [
                     "whirlpool"
                 ],
     "quality_scale":  "silver",
-    "version":  "2.0.0",
     "requirements":  [
                          "whirlpool-sixth-sense@git+https://github.com/aevans0001/whirlpool-legacy-library.git@31df15f58940016ecc07a6e1ab79ccd3e7336cbe"
                      ],
-    "issue_tracker":  "https://github.com/aevans0001/Whirlpool-Legacy/issues"
+    "version":  "2.0.0"
 }
