@@ -1,0 +1,644 @@
+{
+  "common": {
+    "account_locked_error": "The account is locked. Please follow the instructions in the manufacturer's app to unlock it"
+  },
+  "config": {
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
+    },
+    "error": {
+      "account_locked": "[%key:component::whirlpool::common::account_locked_error%]",
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
+      "no_appliances": "No supported appliances found",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "step": {
+      "reauth_confirm": {
+        "data": {
+          "brand": "[%key:component::whirlpool::config::step::user::data::brand%]",
+          "password": "[%key:common::config_flow::data::password%]",
+          "region": "[%key:component::whirlpool::config::step::user::data::region%]"
+        },
+        "data_description": {
+          "brand": "[%key:component::whirlpool::config::step::user::data_description::brand%]",
+          "password": "[%key:component::whirlpool::config::step::user::data_description::password%]",
+          "region": "[%key:component::whirlpool::config::step::user::data_description::region%]"
+        },
+        "title": "[%key:common::config_flow::title::reauth%]"
+      },
+      "user": {
+        "data": {
+          "brand": "Brand",
+          "password": "[%key:common::config_flow::data::password%]",
+          "region": "Region",
+          "username": "[%key:common::config_flow::data::username%]"
+        },
+        "data_description": {
+          "brand": "The brand of the mobile app you use, or the brand of the appliances in your account",
+          "password": "The password you use to log in to the Whirlpool/Maytag app",
+          "region": "The region where your appliances where purchased",
+          "username": "The username or email address you use to log in to the Whirlpool/Maytag app"
+        },
+        "title": "Configure your Whirlpool account"
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "oven_stop": {
+        "name": "Stop"
+      },
+      "oven_stop_lower": {
+        "name": "Lower oven stop"
+      },
+      "oven_stop_upper": {
+        "name": "Upper oven stop"
+      },
+      "washer_start": {
+        "name": "Start"
+      },
+      "washer_pause": {
+        "name": "Pause"
+      },
+      "washer_resume": {
+        "name": "Resume"
+      },
+      "washer_cancel": {
+        "name": "Cancel"
+      },
+      "dryer_start": {
+        "name": "Start"
+      },
+      "dryer_pause": {
+        "name": "Pause"
+      },
+      "dryer_resume": {
+        "name": "Resume"
+      },
+      "dryer_cancel": {
+        "name": "Cancel"
+      }
+    },
+    "light": {
+      "oven_light": {
+        "name": "Light"
+      },
+      "oven_light_lower": {
+        "name": "Lower oven light"
+      },
+      "oven_light_upper": {
+        "name": "Upper oven light"
+      }
+    },
+    "number": {
+      "oven_target_temperature": {
+        "name": "Target temperature"
+      },
+      "oven_target_temperature_lower": {
+        "name": "Lower oven target temperature"
+      },
+      "oven_target_temperature_upper": {
+        "name": "Upper oven target temperature"
+      }
+    },
+    "select": {
+      "oven_cook_mode": {
+        "name": "Cook mode",
+        "state": {
+          "air_fry": "Air fry",
+          "bake": "Bake",
+          "broil": "Broil",
+          "convection_bake": "Convection bake",
+          "convection_broil": "Convection broil",
+          "convection_roast": "Convection roast",
+          "keep_warm": "Keep warm",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_cook_mode_lower": {
+        "name": "Lower oven cook mode",
+        "state": {
+          "air_fry": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::air_fry%]",
+          "bake": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::bake%]",
+          "broil": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::broil%]",
+          "convection_bake": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_bake%]",
+          "convection_broil": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_broil%]",
+          "convection_roast": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_roast%]",
+          "keep_warm": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::keep_warm%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_cook_mode_upper": {
+        "name": "Upper oven cook mode",
+        "state": {
+          "air_fry": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::air_fry%]",
+          "bake": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::bake%]",
+          "broil": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::broil%]",
+          "convection_bake": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_bake%]",
+          "convection_broil": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_broil%]",
+          "convection_roast": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::convection_roast%]",
+          "keep_warm": "[%key:component::whirlpool::entity::select::oven_cook_mode::state::keep_warm%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "refrigerator_temperature_level": {
+        "name": "Temperature level"
+      },
+      "washer_what_to_wash": {
+        "name": "What to wash",
+        "state": {
+          "regular": "Regular",
+          "colors": "Colors",
+          "whites": "Whites",
+          "towels": "Towels",
+          "delicates": "Delicates",
+          "bulky": "Bulky"
+        }
+      },
+      "washer_how_to_wash": {
+        "name": "How to wash",
+        "state": {
+          "normal": "Normal",
+          "quick": "Quick",
+          "wrinkle_control": "Wrinkle control",
+          "heavy_duty": "Heavy duty",
+          "cold_wash": "Cold wash",
+          "sanitize": "Sanitize"
+        }
+      },
+      "washer_dispenser_1_enable": {
+        "name": "Dispenser 1 mode",
+        "state": {
+          "disabled": "Disabled",
+          "enabled": "Enabled",
+          "disabled_next_cycle": "Disabled next cycle"
+        }
+      },
+      "washer_dispenser_2_enable": {
+        "name": "Dispenser 2 mode",
+        "state": {
+          "disabled": "Disabled",
+          "enabled": "Enabled",
+          "disabled_next_cycle": "Disabled next cycle"
+        }
+      },
+      "washer_dispenser_1_concentration": {
+        "name": "Dispenser 1 detergent concentration",
+        "state": {
+          "2x": "2X",
+          "3x": "3X",
+          "4x": "4X",
+          "5x": "5X",
+          "6x": "6X",
+          "8x": "8X"
+        }
+      },
+      "washer_dispenser_2_concentration": {
+        "name": "Dispenser 2 detergent concentration",
+        "state": {
+          "2x": "2X",
+          "3x": "3X",
+          "4x": "4X",
+          "5x": "5X",
+          "6x": "6X",
+          "8x": "8X"
+        }
+      },
+      "washer_dispenser_2_contents": {
+        "name": "Dispenser 2 contents",
+        "state": {
+          "detergent": "Detergent",
+          "softener": "Softener"
+        }
+      },
+      "washer_fan_fresh": {
+        "name": "Fan Fresh",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "washer_steam": {
+        "name": "Steam",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "washer_temperature": {
+        "name": "Wash temperature",
+        "state": {
+          "cold": "Cold",
+          "cool": "Cool",
+          "warm": "Warm",
+          "hot": "Hot",
+          "extra_hot": "Extra Hot"
+        }
+      },
+      "washer_spin_speed": {
+        "name": "Spin speed",
+        "state": {
+          "off": "Off",
+          "low": "Slow",
+          "medium": "Medium",
+          "high": "Fast",
+          "extra_high": "Extra Fast"
+        }
+      },
+      "washer_soil_level": {
+        "name": "Soil level",
+        "state": {
+          "light": "Light",
+          "normal": "Normal",
+          "heavy": "Heavy"
+        }
+      },
+      "washer_extra_rinse": {
+        "name": "Extra rinse",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "washer_presoak": {
+        "name": "Presoak",
+        "state": {
+          "off": "Off",
+          "30_min": "30 minutes",
+          "1_hour": "1 hour",
+          "8_hour": "8 hours"
+        }
+      },
+      "washer_utility_cycle": {
+        "name": "Utility cycle",
+        "state": {
+          "drain_spin": "Drain & Spin",
+          "clean_washer": "Clean Washer with affresh"
+        }
+      },
+      "washer_favorite_cycle": {
+        "name": "Favorite Cycle",
+        "state": {
+          "none": "None"
+        }
+      },
+      "washer_specialty_cycle": {
+        "name": "Specialty Cycle",
+        "state": {
+          "none": "None",
+          "coats_jackets": "Coats & Jackets",
+          "diapers": "Diapers",
+          "sleeping_bags": "Sleeping Bags",
+          "comforters": "Comforters",
+          "machine_wash_curtains": "Machine-Wash Curtains",
+          "swimwear": "Swimwear",
+          "activewear": "Activewear",
+          "jeans": "Jeans",
+          "blankets": "Blankets",
+          "lingerie": "Lingerie",
+          "business_casual": "Business Casual"
+        }
+      },
+      "dryer_wrinkle_shield": {
+        "name": "Wrinkle Shield",
+        "state": {
+          "off": "Off",
+          "on": "On",
+          "on_with_steam": "On with Steam"
+        }
+      },
+      "dryer_what_to_dry": {
+        "name": "What to dry",
+        "state": {
+          "regular": "Regular",
+          "colors": "Colors",
+          "whites": "Whites",
+          "towels": "Towels",
+          "delicates": "Delicates",
+          "bulky": "Bulky"
+        }
+      },
+      "dryer_how_to_dry": {
+        "name": "How to dry",
+        "state": {
+          "normal": "Normal",
+          "quick": "Quick",
+          "wrinkle_control": "Wrinkle control",
+          "heavy_duty": "Heavy duty",
+          "sanitize": "Sanitize",
+          "timed_dry": "Timed dry"
+        }
+      },
+      "dryer_utility_cycle": {
+        "name": "Utility cycle",
+        "state": {
+          "steam_refresh": "Steam Refresh"
+        }
+      },
+      "dryer_dryness": {
+        "name": "Dryness level",
+        "state": {
+          "less": "Less",
+          "normal": "Normal",
+          "more": "More"
+        }
+      },
+      "dryer_temperature": {
+        "name": "Temperature",
+        "state": {
+          "air": "Air only",
+          "cool_low": "Cool low",
+          "cool_mid": "Cool",
+          "warm_mid": "Warm",
+          "hot_mid": "Hot"
+        }
+      },
+      "dryer_static_guard": {
+        "name": "Static Guard",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "dryer_eco_boost": {
+        "name": "Eco Boost",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "dryer_manual_dry_time": {
+        "name": "Manual dry time",
+        "state": {
+          "15": "15 min",
+          "30": "30 min",
+          "45": "45 min",
+          "60": "60 min",
+          "90": "90 min"
+        }
+      },
+      "dryer_favorite_cycle": {
+        "name": "Favorite Cycle",
+        "state": {
+          "none": "None"
+        }
+      }
+    },
+    "sensor": {
+      "dryer_state": {
+        "name": "State",
+        "state": {
+          "complete": "Complete",
+          "customer_focus_mode": "Customer focus mode",
+          "cycle_filling": "Cycle filling",
+          "cycle_rinsing": "Cycle rinsing",
+          "cycle_sensing": "Cycle sensing",
+          "cycle_soaking": "Cycle soaking",
+          "cycle_spinning": "Cycle spinning",
+          "cycle_washing": "Cycle washing",
+          "delay_countdown": "Delay countdown",
+          "delay_paused": "Delay paused",
+          "demo_mode": "Demo mode",
+          "exception": "Exception",
+          "factory_diagnostic_mode": "Factory diagnostic mode",
+          "hard_stop_or_error": "Hard stop or error",
+          "life_test": "Life test",
+          "pause": "Paused",
+          "power_failure": "Power failure",
+          "running_maincycle": "Running maincycle",
+          "running_postcycle": "Running postcycle",
+          "service_diagnostic_mode": "Service diagnostic mode",
+          "setting": "Setting",
+          "smart_delay": "Smart delay",
+          "smart_grid_pause": "Smart grid pause",
+          "standby": "Standby",
+          "system_initialize": "System initialize"
+        }
+      },
+      "end_time": {
+        "name": "End time"
+      },
+      "cycle_time_remaining": {
+        "name": "Cycle time remaining"
+      },
+      "oven_cook_mode": {
+        "name": "Cook mode",
+        "state": {
+          "air_fry": "Air fry",
+          "bake": "Bake",
+          "broil": "Broil",
+          "convection_bake": "Convection bake",
+          "convection_broil": "Convection broil",
+          "convection_roast": "Convection roast",
+          "keep_warm": "Keep warm",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_cook_mode_lower": {
+        "name": "Lower oven cook mode",
+        "state": {
+          "air_fry": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::air_fry%]",
+          "bake": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::bake%]",
+          "broil": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::broil%]",
+          "convection_bake": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_bake%]",
+          "convection_broil": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_broil%]",
+          "convection_roast": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_roast%]",
+          "keep_warm": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::keep_warm%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_cook_mode_upper": {
+        "name": "Upper oven cook mode",
+        "state": {
+          "air_fry": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::air_fry%]",
+          "bake": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::bake%]",
+          "broil": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::broil%]",
+          "convection_bake": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_bake%]",
+          "convection_broil": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_broil%]",
+          "convection_roast": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::convection_roast%]",
+          "keep_warm": "[%key:component::whirlpool::entity::sensor::oven_cook_mode::state::keep_warm%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_current_temperature": {
+        "name": "Current temperature"
+      },
+      "oven_current_temperature_lower": {
+        "name": "Lower oven current temperature"
+      },
+      "oven_current_temperature_upper": {
+        "name": "Upper oven current temperature"
+      },
+      "oven_state": {
+        "name": "State",
+        "state": {
+          "cooking": "Cooking",
+          "preheating": "Preheating",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_state_lower": {
+        "name": "Lower oven state",
+        "state": {
+          "cooking": "[%key:component::whirlpool::entity::sensor::oven_state::state::cooking%]",
+          "preheating": "[%key:component::whirlpool::entity::sensor::oven_state::state::preheating%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_state_upper": {
+        "name": "Upper oven state",
+        "state": {
+          "cooking": "[%key:component::whirlpool::entity::sensor::oven_state::state::cooking%]",
+          "preheating": "[%key:component::whirlpool::entity::sensor::oven_state::state::preheating%]",
+          "standby": "[%key:common::state::standby%]"
+        }
+      },
+      "oven_target_temperature": {
+        "name": "Target temperature"
+      },
+      "oven_target_temperature_lower": {
+        "name": "Lower oven target temperature"
+      },
+      "oven_target_temperature_upper": {
+        "name": "Upper oven target temperature"
+      },
+      "washer_state": {
+        "name": "State",
+        "state": {
+          "complete": "Complete",
+          "customer_focus_mode": "Customer focus mode",
+          "cycle_filling": "Cycle filling",
+          "cycle_rinsing": "Cycle rinsing",
+          "cycle_sensing": "Cycle sensing",
+          "cycle_soaking": "Cycle soaking",
+          "cycle_spinning": "Cycle spinning",
+          "cycle_washing": "Cycle washing",
+          "delay_countdown": "Delay countdown",
+          "delay_paused": "Delay paused",
+          "demo_mode": "Demo mode",
+          "exception": "Exception",
+          "factory_diagnostic_mode": "Factory diagnostic mode",
+          "hard_stop_or_error": "Hard stop or error",
+          "life_test": "Life test",
+          "pause": "Paused",
+          "power_failure": "Power failure",
+          "running_maincycle": "Running maincycle",
+          "running_postcycle": "Running postcycle",
+          "service_diagnostic_mode": "Service diagnostic mode",
+          "setting": "Setting",
+          "smart_delay": "Smart delay",
+          "smart_grid_pause": "Smart grid pause",
+          "standby": "Standby",
+          "system_initialize": "System initialize"
+        }
+      },
+      "whirlpool_tank": {
+        "name": "Detergent level",
+        "state": {
+          "25": "25%",
+          "50": "50%",
+          "100": "100%",
+          "active": "[%key:common::state::active%]",
+          "empty": "[%key:common::state::empty%]",
+          "unknown": "Unknown"
+        }
+      },
+      "whirlpool_tank_2": {
+        "name": "Dispenser 2 level",
+        "state": {
+          "25": "25%",
+          "50": "50%",
+          "100": "100%",
+          "active": "[%key:common::state::active%]",
+          "empty": "[%key:common::state::empty%]",
+          "unknown": "Unknown"
+        }
+      }
+    },
+    "binary_sensor": {
+      "remote_control_enabled": {
+        "name": "Remote control enabled"
+      }
+    }
+  },
+  "exceptions": {
+    "account_locked": {
+      "message": "[%key:component::whirlpool::common::account_locked_error%]"
+    },
+    "appliances_fetch_failed": {
+      "message": "Failed to fetch appliances"
+    },
+    "cannot_connect": {
+      "message": "[%key:common::config_flow::error::cannot_connect%]"
+    },
+    "invalid_auth": {
+      "message": "[%key:common::config_flow::error::invalid_auth%]"
+    },
+    "invalid_value_set": {
+      "message": "Invalid value provided"
+    },
+    "request_failed": {
+      "message": "Request failed"
+    },
+    "remote_control_disabled": {
+      "message": "Remote Control is disabled on {device_name}. Enable Remote Control at the appliance first."
+    },
+    "invalid_machine_state_for_command": {
+      "message": "{device_name} is not in a state that allows this command right now."
+    },
+    "favorite_name_invalid": {
+      "message": "Enter a Favorite name between 1 and 50 characters. \"None\" cannot be used."
+    },
+    "favorite_unsupported_cycle": {
+      "message": "The current cycle cannot be saved as a Favorite. Select a What/How cycle first."
+    },
+    "favorite_not_found": {
+      "message": "No saved Favorite has that name."
+    },
+    "not_a_favorite_select": {
+      "message": "Target a washer or dryer Favorite Cycle entity."
+    }
+  },
+  "issues": {
+    "deprecated_oven_cook_mode": {
+      "description": "The `{entity_id}` ({entity_name}) sensor is deprecated and has been replaced by the **Cook mode** select entity, which can both read and change the oven cook mode.\n\nUpdate any dashboards, templates, automations or scripts to use the new select entity, then disable `{entity_id}` to have it removed.",
+      "title": "The Whirlpool oven cook mode sensor is deprecated"
+    },
+    "deprecated_oven_cook_mode_scripts": {
+      "description": "The `{entity_id}` ({entity_name}) sensor is deprecated and has been replaced by the **Cook mode** select entity, which can both read and change the oven cook mode.\n\nIt is still used in the following automations or scripts:\n{items}\n\nUpdate them to use the new select entity, then disable `{entity_id}` to have it removed.",
+      "title": "[%key:component::whirlpool::issues::deprecated_oven_cook_mode::title%]"
+    },
+    "deprecated_oven_target_temperature": {
+      "description": "The `{entity_id}` ({entity_name}) sensor is deprecated and has been replaced by the **Target temperature** number entity, which can both read and change the oven target temperature.\n\nUpdate any dashboards, templates, automations or scripts to use the new number entity, then disable `{entity_id}` to have it removed.",
+      "title": "The Whirlpool oven target temperature sensor is deprecated"
+    },
+    "deprecated_oven_target_temperature_scripts": {
+      "description": "The `{entity_id}` ({entity_name}) sensor is deprecated and has been replaced by the **Target temperature** number entity, which can both read and change the oven target temperature.\n\nIt is still used in the following automations or scripts:\n{items}\n\nUpdate them to use the new number entity, then disable `{entity_id}` to have it removed.",
+      "title": "[%key:component::whirlpool::issues::deprecated_oven_target_temperature::title%]"
+    }
+  },
+  "services": {
+    "save_favorite": {
+      "name": "Save Favorite",
+      "description": "Saves the appliance's current cycle configuration as a Home Assistant Favorite. Nothing is sent to the appliance. A saved Favorite with the same name is replaced.",
+      "fields": {
+        "name": {
+          "name": "Favorite name",
+          "description": "Name to show in the Favorite Cycle list."
+        }
+      }
+    },
+    "delete_favorite": {
+      "name": "Delete Favorite",
+      "description": "Deletes any saved Home Assistant Favorite, including the optional starter example.",
+      "fields": {
+        "name": {
+          "name": "Favorite name",
+          "description": "Name of the saved Favorite to delete."
+        }
+      }
+    }
+  }
+}

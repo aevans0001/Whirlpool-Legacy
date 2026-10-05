@@ -1,0 +1,15 @@
+Whirlpool Legacy integration
+
+This integration includes modified portions of the Whirlpool integration in
+Home Assistant Core (https://github.com/home-assistant/core), distributed under
+the Apache License, Version 2.0. The original Home Assistant contributors retain
+their rights. Changes in this standalone integration include additional laundry
+controls, local Favorites, Specialty-cycle support, and related documentation.
+
+The custom_components/whirlpool Python platforms, config flow, entity helpers, and
+associated integration metadata and translations are adapted from Home
+Assistant Core where applicable. Modified Python files carry source notices.
+
+The separately installed whirlpool-sixth-sense library is not included in this
+repository. It is maintained at https://github.com/aevans0001/whirlpool-legacy-library
+and has its own MIT license and attribution to its original contributors.
